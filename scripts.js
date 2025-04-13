@@ -95,3 +95,12 @@ function removeLastCard() {
   titles.pop(); // Remove last item in titles array
   showCards(); // Call showCards again to refresh
 }
+
+function FilterReveal(){
+  document.getElementById("filter_Area").style.width = "250px";
+
+}
+function HideFilters() {
+  document.getElementById("filter_Area").style.width = "0";
+
+}

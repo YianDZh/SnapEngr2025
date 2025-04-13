@@ -4,7 +4,6 @@
     <title>FootWearDomain</title>
     <meta name="description" content="The footwear shop that will make you push FWD" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
@@ -12,22 +11,58 @@
 
   <body>
     <header class="top_info">
-        <img src="./images/fwd.png" alt="Foot Wear Domain Logo", height="100" class="logo right-logo">
+        <img src="./images/fwd.png" alt="Foot Wear Domain Logo", class="logo right-logo">
         <div class="search-container">
             <input type="text" class="search-bar" placeholder="Search...">
-            <button class="search-button">Search</button>
+            <button class="search-button"><img src="images/search.png"></button>
         </div>
-        <img src="./images/snaplogo.png" alt="Snap Engineering Academy Logo", height="100" class="logo right-logo">
+        <a href="https://www.snapacademies.com/sea" target="_blank">
+            <img src="./images/snaplogo.png" alt="Snap Engineering Academy Logo"  class="logo right-logo">
+        </a>
+
 
     </header>
     <div class="main-header">
-      <h1 class="title">FootWearDomain</h1>
+      <h1 class="title"><b>F</b>oot<b>W</b>ear<b>D</b>omain</h1>
   
     </div>
     <h2 class ="slogan">"The footwear shop that will make you push FWD"</h2>
-
-    <div id="card-container"></div>
     
+    <!-- TODO ADD FILTERS BY JS-->
+    <div class = "categories">
+        <button >NEW</button>
+        <button >MEN</button>
+        <button >WOMEN</button>
+        <button >KIDS</button>
+    </div>
+    <!-- TODO ADD GROUPS BY JS -->
+    <!-- ? Disclaimer, added the dropdown Menu from W3 Schools -->
+
+    <div id="filter_Area" class="filter-area">
+        <a href="javascript:void(0)" class="closebtn" onclick="HideFilters()">&times;</a>
+        <a href="#">Category</a>
+        <a href="#">Price (Low to High)</a>
+        <a href="#">Price (High to Low)</a>
+        <a href="#">Brand</a> 
+    </div>
+    <div id="filterArea" class="filter-area">
+      <a href="javascript:void(0)" class="closebtn" onclick="HideFilters()">&times;</a>
+      <a href="#">Category</a>
+      <a href="#">Price (Low to High)</a>
+      <a href="#">Price (High to Low)</a>
+      <a href="#">Brand</a> 
+    </div>
+  
+  
+    <!-- Main content area -->
+    <div id="main">
+      <span onclick="FilterReveal()" class="filterbtn">
+          <img src="./images/filter.png" alt="Filter">
+      </span>
+      
+      <div id="card-container"></div>
+    </div>    
+    <div id="card-container"></div>
     <div class="card" style="display: none">
       <div class="card-content">
         <h2>TV Show Title</h2>
