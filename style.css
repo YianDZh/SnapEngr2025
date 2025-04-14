@@ -167,33 +167,39 @@ body {
   color: #f1f1f1;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s;
   padding: 20px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .filter-area {padding-top: 15px;}
   .filter-area  {font-size: 18px;}
 }
 
-
-#card-container {
-  /* background-color: #2D3142; */
+#DisplayArea{
+  margin-bottom: 30px;
+  gap: 100px; 
+  background-color: #ffffff;
+}
+.card-container {
+  background-color: #2D3142;
   display: flex;
-  justify-content: center;
-  margin : 20px;
-  
+  gap: 100px; 
+  justify-content: right;
+  align-items: left;
 }
 
 .card {
-  width: 300px;
+  width: 550px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+  margin-left : 5px;
+  height: 300px;
+  /* display: flex; */
+  justify-content:left;
+  align-items: center;
 }
 
 .card-content {
@@ -208,9 +214,17 @@ body {
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  width: 45%;
+  height: 50%;
+  float:inline-start;
 }
+.card li{
+    margin-left: 0;
+    font-size: 20px;
+  }
+
+
+
 
 .footer {
   display: flex;
