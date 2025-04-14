@@ -19,6 +19,8 @@ body {
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
+  overflow-x: hidden;
+
 }
 .top_info {
   position: relative; 
@@ -188,10 +190,11 @@ body {
   gap: 100px; 
   justify-content: right;
   align-items: left;
+  
 }
 
 .card {
-  width: 550px;
+  width: 525px;
   border: 1px solid #ccc;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

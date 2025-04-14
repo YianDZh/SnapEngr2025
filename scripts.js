@@ -32,27 +32,26 @@ document.addEventListener("DOMContentLoaded", showCards);
 
 function showCards() {
   const Area = document.querySelector("#DisplayArea")
-  const cardContainer = document.querySelector(".card-container");
   const templateCard = document.querySelector(".card");
-  cardContainer.innerHTML = "";
+  Area.innerHTML = "";
 
   for (let i = 0; i < shoes.length; i++) {
-    let name = shoes[i].model;
-    let image = shoes[i].image;
-    // console.log("name:", {name})
-    // console.log("image:", {image})
-    // console.log(i);
-    if (i%2===0){
-      const NewSeparation = cardContainer.cloneNode(true); // Copy the  separation
-      NewSeparation.innerHTML="";
-      Area.appendChild(NewSeparation);
+    const cardContainer = document.createElement("div");
+    cardContainer.className = "card-container"
+    for (let j=0;j<2;j++){
+      let card1 = templateCard.cloneNode(true);
+      editCardContent(card1, shoes[i+j].model, shoes[i+j].image);
+      cardContainer.appendChild(card1);
+      if (shoes.length%2===1 && i+1===shoes.length ) {
+         break;
+      }
     }
-    // const currentContainer = displayArea.lastElementChild;
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    // nextCard.style.display = "block"; // Make sure it's visible
+    // console.log("name:", {shoes[i].model})
+    // console.log("image:", {shoes[i].image})
+    // console.log(i);
 
-    editCardContent(nextCard, name, image); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
+    if (i%2===0)
+      Area.appendChild(cardContainer);
   }
 }
 
