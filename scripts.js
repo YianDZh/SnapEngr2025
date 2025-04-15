@@ -171,11 +171,10 @@ function filternew(){
   showCards();
 
 }
-const back2 = shoes;
+const back2 = [... shoes];
 function orderbyprice(){
   const highToLowRadio = document.getElementById("Highest");
   const lowToHighRadio = document.getElementById("Lowest");
-  const noneRadio = document.getElementById("None"); 
   shoes.sort(function(a, b){return a.price - b.price});
   if (highToLowRadio.checked){
     shoes.reverse();
@@ -187,6 +186,7 @@ function orderbyprice(){
   }
   showCards();
 }
+
 function resetAllCheckboxes() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach(checkbox => {
@@ -198,10 +198,9 @@ function refresh(){
 }
 
 function loadtoList (key){
-  console.log("Here");
   let data = removeDuplicates (original , key);
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i]);
+    console.log("Filtered Unique fields: " + data[i]);
   }    
 
   const section = document.getElementById(key+'-dropdown');

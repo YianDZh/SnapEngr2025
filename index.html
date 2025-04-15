@@ -48,16 +48,16 @@
         <fieldset>
           <legend>Price Filter</legend>
           <div class = "radio-container" id = "radio">
-            <input type="radio" id="Highest" name="price-sort" />
+            <input type="radio" id="Highest" name="price-sort" onchange="orderbyprice();"/>
             <p>High to Low</p>
           </div>
         
           <div class = "radio-container">
-            <input type="radio" id="Lowest" name="price-sort"/>
+            <input type="radio" id="Lowest" name="price-sort" onchange="orderbyprice();"/>
             <p>Low to High</p>
           </div>
           <div class = "radio-container">
-            <input type="radio" id="None" name="price-sort"/>
+            <input type="radio" id="None" name="price-sort" onchange="orderbyprice();"/>
             <p>None</p>
           </div>
         </fieldset>

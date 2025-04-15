@@ -25,7 +25,7 @@ let original =
         category : "Running",
         price : "125",
         new: true,
-        // image : "./images/shoes/UltraRangeNeo.png"
+        image : "./images/shoes/"
     },
     {
         brand: "Adidas",
