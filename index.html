@@ -47,7 +47,7 @@
         </label>
         <fieldset>
           <legend>Price Filter</legend>
-          <div class = "radio-container">
+          <div class = "radio-container" id = "radio">
             <input type="radio" id="Highest" name="price-sort" />
             <p>High to Low</p>
           </div>
@@ -57,21 +57,24 @@
             <p>Low to High</p>
           </div>
           <div class = "radio-container">
-            <input type="radio" id="Lowest" name="price-sort"/>
+            <input type="radio" id="None" name="price-sort"/>
             <p>None</p>
           </div>
         </fieldset>
-        
-
         <!-- TODO make them lists-->
         <div class="dropdown">
-          <button class="dropdown-button">Brand</button>
-          <div class="dropdown-content">
-            <p>Hello</p>
+          <button class="dropdown-button" >Brand</button>
+          <div class="dropdown-content" id="category-dropdown">
+            <!-- <a>Hello</a> -->
           </div>
         </div>
   
-
+        <div class="dropdown">
+          <button class="dropdown-button" >Category</button>
+          <div class="dropdown-content" id="brand-dropdown">
+            <!-- <a>Hello</a> -->
+          </div>
+        </div>
     </div>
     <!-- <div id="filterArea" class="filter-area">
       <a href="javascript:void(0)" class="closebtn" onclick="HideFilters()">&times;</a>

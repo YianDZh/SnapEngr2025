@@ -82,7 +82,7 @@ body {
   padding-bottom: 10px;
   position: relative;
   background-image: url("images/texture.jpg");
-  background-blend-mode: multiply; /* Options: overlay, darken, lighten, screen, etc. */
+  background-blend-mode: multiply; 
   background-size: cover;
   background-position: center;
 
@@ -128,10 +128,10 @@ body {
   z-index: 10; 
   top: 200px;
   left: 0;
-  background-color: rgba(76, 122, 76, 0.2); /* This uses rgba with 0.2 alpha (20% opacity) */
+  background-color: rgba(76, 122, 76, 0.2); 
   overflow-x: hidden; 
   padding-top: 60px; 
-  bottom: 500px; /* Add some bottom margin for vertical centering */
+  bottom: 500px; 
   transition: 0.5s; 
 }
 
@@ -310,9 +310,10 @@ body {
 .card-content h2 {
   margin-top: 0;
   font-size: 20px;
+  color: #2a702a;
 }
 .card ul {
-  overflow: hidden; /* Prevents content from flowing under floated elements */
+  overflow: hidden; 
   padding-left: 15px;
 }
 

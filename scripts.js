@@ -33,6 +33,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
   // FisherYates();
+  loadtoList("brand");
+  loadtoList("category");
+
   showCards();
 });
 
@@ -168,7 +171,22 @@ function filternew(){
   showCards();
 
 }
-
+const back2 = shoes;
+function orderbyprice(){
+  const highToLowRadio = document.getElementById("Highest");
+  const lowToHighRadio = document.getElementById("Lowest");
+  const noneRadio = document.getElementById("None"); 
+  shoes.sort(function(a, b){return a.price - b.price});
+  if (highToLowRadio.checked){
+    shoes.reverse();
+  }
+  else if (lowToHighRadio.checked){
+  }
+  else {
+    shoes = back2;
+  }
+  showCards();
+}
 function resetAllCheckboxes() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach(checkbox => {
@@ -177,4 +195,34 @@ function resetAllCheckboxes() {
 }
 function refresh(){
   location.reload(true);
+}
+
+function loadtoList (key){
+  console.log("Here");
+  let data = removeDuplicates (original , key);
+  for (let i = 0; i < data.length; i++) {
+    console.log(data[i]);
+  }    
+
+  const section = document.getElementById(key+'-dropdown');
+    
+  if (!section) {
+    console.log (key+'-dropdown');
+    console.error(`Could not find element with selector: .dropdown-content name="${key}"`);
+    return;
+  }
+  for (let i = 0; i < data.length; i++) {
+    const option = document.createElement("a");
+    option.textContent = data[i];
+    section.appendChild(option);
+  }
+}
+
+
+function removeDuplicates(arr, key) {
+  const seen = new Set();
+  return arr.filter(obj => {
+    const keyValue = obj[key];
+    return seen.has(keyValue) ? false : (seen.add(keyValue), true);
+  }).map(obj => obj[key]);
 }
