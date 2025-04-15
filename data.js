@@ -1,4 +1,4 @@
-let shoes =
+let original =
 [
     {
         brand: "Nike",
@@ -66,10 +66,21 @@ let shoes =
     {
         brand: "Nike",
         model : "Jordan Jumpman Two Trey",
-        main_category: "Male",
+        main_category: "Kids",
         category : "Casual",
         price : "120",
         new: false,
-        image : "./images/shoes"
+        image : "./images/shoes/"
     }
 ]
+
+let shoes = original;
+
+function FisherYates() {
+    for (let i = shoes.length -1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i+1));
+      let k = shoes[i];
+      shoes[i] = shoes[j];
+      shoes[j] = k;
+    }
+}

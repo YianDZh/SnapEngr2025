@@ -6,14 +6,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
     <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
 
   </head>
 
   <body>
     <header class="top_info">
+        <a onclick="refresh();">
         <img src="./images/fwd.png" alt="Foot Wear Domain Logo", class="logo right-logo">
+        </a>
         <div class="search-container">
             <input type="text" class="search-bar" placeholder="Search...">
             <button class="search-button"><img src="images/search.png"></button>
@@ -30,33 +32,59 @@
     </div>
     <h2 class ="slogan">"The footwear shop that will make you push FWD"</h2>
     
-    <!-- TODO ADD FILTERS BY JS-->
     <div class = "categories">
-        <button >NEW</button>
-        <button >MEN</button>
-        <button >WOMEN</button>
-        <button >KIDS</button>
+        <button onclick="filtertop.call(this);">MEN</button>
+        <button onclick="filtertop.call(this);">WOMEN</button>
+        <button onclick="filtertop.call(this);">KIDS</button>
     </div>
-    <!-- TODO ADD GROUPS BY JS -->
     <!-- ? Disclaimer, added the dropdown Menu from W3 Schools -->
 
     <div id="filter_Area" class="filter-area">
         <a href="javascript:void(0)" class="closebtn" onclick="HideFilters()">&times;</a>
-        <a href="#">Category</a>
-        <a href="#">Price (Low to High)</a>
-        <a href="#">Price (High to Low)</a>
-        <a href="#">Brand</a> 
+        <label  class ="checkbox-container" >
+          <a>New Arrivals</a>
+          <input type="checkbox" id = "new"  name="new"  onchange="filternew();"" />
+        </label>
+        <fieldset>
+          <legend>Price Filter</legend>
+          <div class = "radio-container">
+            <input type="radio" id="Highest" name="price-sort" />
+            <p>High to Low</p>
+          </div>
+        
+          <div class = "radio-container">
+            <input type="radio" id="Lowest" name="price-sort"/>
+            <p>Low to High</p>
+          </div>
+          <div class = "radio-container">
+            <input type="radio" id="Lowest" name="price-sort"/>
+            <p>None</p>
+          </div>
+        </fieldset>
+        
+
+        <!-- TODO make them lists-->
+        <div class="dropdown">
+          <button class="dropdown-button">Brand</button>
+          <div class="dropdown-content">
+            <p>Hello</p>
+          </div>
+        </div>
+  
+
     </div>
-    <div id="filterArea" class="filter-area">
+    <!-- <div id="filterArea" class="filter-area">
       <a href="javascript:void(0)" class="closebtn" onclick="HideFilters()">&times;</a>
-      <a href="#">Category</a>
-      <a href="#">Price (Low to High)</a>
-      <a href="#">Price (High to Low)</a>
-      <a href="#">Brand</a> 
-    </div>
+      <input type="checkbox" id="scales" name="scales" />
+      <a href="#">Scales</a>
+      <a onclick="filternew.call(this);">New arrivals</a>
+      <a>Category</a>
+      <a>Price (Low to High)</a>
+      <a>Price (High to Low)</a>
+      <a>Brand</a> 
+    </div> -->
+
   
-  
-    <!-- Main content area -->
       <span onclick="FilterReveal()" class="filterbtn">
           <img src="./images/filter.png" alt="Filter">
       </span>
@@ -65,13 +93,12 @@
         <div class="card-container">
           <div class="card" style="display: none">
             <div class="card-content">
-              <h2>Brand</h2>
+              <h2>Model</h2>
               <img src="" alt="Shoe picture">
-              <ul>
-                <li>Bullet Point 1</li>
-                <li>Bullet Point 2</li>
-                <li>Bullet Point 3</li>
-              </ul>
+                <p id="brand">Brand</p>
+                <p id="main-category">Main</p>
+                <p id="category">Category</p>
+              <button id="price">$Price</button>
             </div>
           </div>
         </div>

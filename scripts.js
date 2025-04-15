@@ -1,3 +1,4 @@
+
 /**
  * Data Catalog Project Starter Code - SEA Stage 2
  *
@@ -24,51 +25,64 @@
  */
 
 
+
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
 // This function adds cards the page to display the data in the array
-document.addEventListener("DOMContentLoaded", showCards);
+
+document.addEventListener("DOMContentLoaded", function() {
+  // FisherYates();
+  showCards();
+});
 
 function showCards() {
   const Area = document.querySelector("#DisplayArea")
   const templateCard = document.querySelector(".card");
   Area.innerHTML = "";
 
-  for (let i = 0; i < shoes.length; i++) {
+  for (let i = 0; i < shoes.length; i+=2) {
     const cardContainer = document.createElement("div");
     cardContainer.className = "card-container"
-    for (let j=0;j<2;j++){
-      let card1 = templateCard.cloneNode(true);
-      editCardContent(card1, shoes[i+j].model, shoes[i+j].image);
-      cardContainer.appendChild(card1);
-      if (shoes.length%2===1 && i+1===shoes.length ) {
-         break;
-      }
+    let card1 = templateCard.cloneNode(true);
+    editCardContent(card1, shoes[i]);
+    cardContainer.appendChild(card1);
+    if (i+1<shoes.length ) {
+      let card2 = templateCard.cloneNode(true);
+      editCardContent(card2, shoes[i+1]);
+      cardContainer.appendChild(card2);
     }
-    // console.log("name:", {shoes[i].model})
+
+      // console.log("name:", {shoes[i].model})
     // console.log("image:", {shoes[i].image})
     // console.log(i);
 
-    if (i%2===0)
       Area.appendChild(cardContainer);
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, item) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+  cardHeader.textContent = item.model;
 
   const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  cardImage.src = item.image;
 
+  
+  const cardBrand = card.querySelector("#brand");
+  cardBrand.textContent= item.brand;
+  const cardCategory = card.querySelector("#main-category");
+  cardCategory.textContent = item.main_category;
+  const lowCategorie= card.querySelector("#category");
+  lowCategorie.textContent=item.category;
+  const price= card.querySelector("#price");
+  price.textContent="$"+item.price;
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
   // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+  // console.log("new card:", newTitle, "- html: ", card);
 }
 
 // This calls the addCards() function when the page is first loaded
@@ -79,10 +93,12 @@ function editCardContent(card, newTitle, newImageURL) {
 
 function FilterReveal(){
   document.getElementById("filter_Area").style.width = "250px";
+  document.querySelector('.filterbtn').style.display = "none";
 
 }
 function HideFilters() {
   document.getElementById("filter_Area").style.width = "0";
+  document.querySelector('.filterbtn').style.display = "block";
 
 }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -96,6 +112,69 @@ function quoteAlert() {
 
 
 function removeLastCard() {
-  shoes.pop(); // Remove last item in titles array
+  let last = shoes.pop(); // Remove last item in titles array
+  console.log(last.model);
+  for (let i = 0; i<original.length;i++){
+    if (original [i]===last){
+      original.splice(i,1);
+    }
+  }
+  shoes = original;
   showCards(); // Call showCards again to refresh
+}
+
+
+//I tried doing queryselector but it didn't seem to work as intended. So I thought call this was the easiest way without making it more complex
+function filtertop(){
+  resetAllCheckboxes();
+  shoes = original;
+  let category =  this.textContent;
+  console.log("Our category is: ", category);
+  let filtered = [];
+  console.log("here");
+  for (let i = 0 ; i<shoes.length;i++){
+
+    console.log(i, shoes[i].main_category.toUpperCase());
+
+    if (shoes[i].main_category.toUpperCase()===category){
+      filtered.push(shoes[i]);
+      // console.log(fil)
+    }
+  }
+  // for (let i = 0 ; i<filtered.length;i++){
+  //   console.log(filtered[i].model);
+  // }
+  shoes=filtered;
+  showCards();
+}
+
+let backup = [...shoes];
+function filternew(){
+  const checkbox = document.getElementById("new");
+  if (checkbox.checked){
+    let filtered = [];
+    for (let i = 0 ; i<shoes.length;i++){
+      console.log(i, shoes[i].new);
+      if (shoes[i].new){
+        filtered.push(shoes[i]);
+        // console.log(fil)
+      }
+    }
+    shoes = filtered;
+  }
+  else {
+    shoes = backup;
+  }
+  showCards();
+
+}
+
+function resetAllCheckboxes() {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
+}
+function refresh(){
+  location.reload(true);
 }

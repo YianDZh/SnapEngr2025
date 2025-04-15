@@ -122,24 +122,27 @@ body {
   text-decoration: underline;
 }
 .filter-area{
-  height: 70%; 
+  height: 50%; 
   width: 0; 
-  position:absolute; 
+  position: fixed; 
   z-index: 10; 
-  top: 300; 
+  top: 200px;
   left: 0;
-  background-color: #111; 
+  background-color: rgba(76, 122, 76, 0.2); /* This uses rgba with 0.2 alpha (20% opacity) */
   overflow-x: hidden; 
   padding-top: 60px; 
+  bottom: 500px; /* Add some bottom margin for vertical centering */
   transition: 0.5s; 
 }
 
 .filterbtn {
-  position: absolute;
+  position: fixed;
   background-color: transparent;
   color: white;
   border: none;
   z-index: 2;
+  top: 50%; 
+
 }
 
 .filterbtn:hover {
@@ -155,8 +158,14 @@ body {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  color: #818181;
+  transition: 0.3s;
 }
-.filter-area a {
+.filter-area .closebtn:hover {
+  color: red;
+  text-decoration: none;
+}
+.filter-area a{
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -164,9 +173,37 @@ body {
   display: block;
   transition: 0.3s;
 }
-
 .filter-area a:hover {
-  color: #f1f1f1;
+  color: red;
+  text-decoration: underline;
+
+}
+.filter-area legend{
+  padding: 8px 16px 8px 16px;
+  text-decoration: none;
+  font-size:20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.checkbox-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+  max-width: 200px; 
+  cursor: pointer;
+}
+
+.checkbox-container span {
+  order: 1; 
+}
+
+.checkbox-container input[type="checkbox"] {
+  order: 2; 
+  margin-left: 10px; 
 }
 
 #main {
@@ -178,19 +215,78 @@ body {
   .filter-area {padding-top: 15px;}
   .filter-area  {font-size: 18px;}
 }
-
+/* 
 #DisplayArea{
-  margin-bottom: 30px;
-  gap: 100px; 
-  background-color: #ffffff;
+   background-color: #ffffff; 
+} */
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  padding: auto;
 }
+
+.radio-container input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radio-container p {
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  transition: 0.3s;
+}
+.radio-container p:hover {
+  text-decoration: underline;
+  color: #9b6464;
+}
+.dropdown {
+  position: relative;
+  /* display: inline-block; */
+  margin-left: 30px;
+}
+
+/* Dropdown button */
+.dropdown-button {
+  background-color: transparent;
+  color: #818181;
+  padding: 10px 16px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:rgba(202, 183, 98, 0.2); ;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropdown-button {
+  color: #8fff85;
+
+}
+
+
 .card-container {
-  background-color: #2D3142;
+  margin-bottom: 30px;
   display: flex;
   gap: 100px; 
-  justify-content: right;
+  justify-content:flex-end;
   align-items: left;
-  
+  overflow: hidden;
 }
 
 .card {
@@ -215,6 +311,10 @@ body {
   margin-top: 0;
   font-size: 20px;
 }
+.card ul {
+  overflow: hidden; /* Prevents content from flowing under floated elements */
+  padding-left: 15px;
+}
 
 .card img {
   width: 45%;
@@ -222,12 +322,16 @@ body {
   float:inline-start;
 }
 .card li{
-    margin-left: 0;
+    margin-top: 10px;
+    margin-left: 10px;
     font-size: 20px;
-  }
+}
 
-
-
+.card button {
+  position: relative;
+  bottom: 50px;
+  margin-left: 410px;
+}
 
 .footer {
   display: flex;
@@ -249,3 +353,5 @@ button {
   cursor: pointer;
   margin: 5px;
 }
+
+
