@@ -34,8 +34,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   // FisherYates();
   loadtoList("brand");
-  loadtoList("category");
-
   showCards();
 });
 
@@ -199,6 +197,7 @@ function refresh(){
 
 function loadtoList (key){
   let data = removeDuplicates (original , key);
+  data.sort();
   for (let i = 0; i < data.length; i++) {
     console.log("Filtered Unique fields: " + data[i]);
   }    
@@ -213,11 +212,21 @@ function loadtoList (key){
   for (let i = 0; i < data.length; i++) {
     const option = document.createElement("a");
     option.textContent = data[i];
+    option.addEventListener ('click', function() {
+      filterDropDown(data[i]);
+    });
     section.appendChild(option);
+
   }
 }
+const back3 = [... shoes];
+function filterDropDown(brand){
+  shoes = back3;
+  const filteredProducts = shoes.filter(obj => obj.brand === brand);
+  shoes = filteredProducts;
+  showCards();
 
-
+}
 function removeDuplicates(arr, key) {
   const seen = new Set();
   return arr.filter(obj => {
@@ -225,3 +234,27 @@ function removeDuplicates(arr, key) {
     return seen.has(keyValue) ? false : (seen.add(keyValue), true);
   }).map(obj => obj[key]);
 }
+
+const searchArea = document.getElementById ('search-container');
+const searchInput = searchArea.getElementById('search-bar');
+const searchButton = searchArea.getElementById('search-button');
+
+function searchByName (){
+  const target = searchInput.value.toLowerCase().trim();
+  if (target === "" || target.length === 0) {
+    showCards();
+    return;
+  }
+  const filteredArray = shoes.filter(obj => 
+    obj.model.toLowerCase().includes(target)
+  );
+  showCards();
+}
+
+
+searchInput.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    searchByName();
+  }
+});
+searchButton.addEventListener('click', searchByName());

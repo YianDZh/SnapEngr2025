@@ -16,9 +16,9 @@
         <a onclick="refresh();">
         <img src="./images/fwd.png" alt="Foot Wear Domain Logo", class="logo right-logo">
         </a>
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search...">
-            <button class="search-button"><img src="images/search.png"></button>
+        <div id="search-container">
+            <input type="text" id="search-bar" placeholder="Search by name...">
+            <button id="search-button"><img src="images/search.png"></button>
         </div>
         <a href="https://www.snapacademies.com/sea" target="_blank">
             <img src="./images/snaplogo.png" alt="Snap Engineering Academy Logo"  class="logo right-logo">
@@ -64,28 +64,13 @@
         <!-- TODO make them lists-->
         <div class="dropdown">
           <button class="dropdown-button" >Brand</button>
-          <div class="dropdown-content" id="category-dropdown">
-            <!-- <a>Hello</a> -->
-          </div>
-        </div>
-  
-        <div class="dropdown">
-          <button class="dropdown-button" >Category</button>
           <div class="dropdown-content" id="brand-dropdown">
             <!-- <a>Hello</a> -->
           </div>
         </div>
+
     </div>
-    <!-- <div id="filterArea" class="filter-area">
-      <a href="javascript:void(0)" class="closebtn" onclick="HideFilters()">&times;</a>
-      <input type="checkbox" id="scales" name="scales" />
-      <a href="#">Scales</a>
-      <a onclick="filternew.call(this);">New arrivals</a>
-      <a>Category</a>
-      <a>Price (Low to High)</a>
-      <a>Price (High to Low)</a>
-      <a>Brand</a> 
-    </div> -->
+ 
 
   
       <span onclick="FilterReveal()" class="filterbtn">

@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>function loadtoList (key){
+    let data = removeDuplicates (original , key);
+    for (let i = 0; i < data.length; i++) {
+      console.log("Filtered Unique fields: " + data[i]);
+    }    
+  
+    const section = document.getElementById(key+'-dropdown');
+      
+    if (!section) {
+      console.log (key+'-dropdown');
+      console.error(`Could not find element with selector: .dropdown-content name="${key}"`);
+      return;
+    }
+    for (let i = 0; i < data.length; i++) {
+      const option = document.createElement("a");
+      option.textContent = data[i];
+      section.appendChild(option);
+    }
+    
+  }
+  loadtoList(brand)
+  </script>
 <style>
 legend{
   padding: 8px 16px 8px 16px;
@@ -29,18 +51,19 @@ legend{
 </style>
 </head>
 <body>
-  <fieldset>
-    <legend>Price Filter</legend>
-    <div class = "radio-container">
-      <input type="radio" id="Highest" />
-      <p for="huey">High to Low</p>
+  <div class="dropdown">
+    <button class="dropdown-button" >Brand</button>
+    <div class="dropdown-content" id="category-dropdown">
+      <!-- <a>Hello</a> -->
     </div>
-  
-    <div class = "radio-container">
-      <input type="radio" id="Lowest"/>
-      <p for="dewey">Low to High</p>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-button" >Category</button>
+    <div class="dropdown-content" id="brand-dropdown">
+      <!-- <a>Hello</a> -->
     </div>
-  </fieldset>
+  </div>
   
 </body>
 </html>
