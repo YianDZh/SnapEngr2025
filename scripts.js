@@ -33,8 +33,11 @@
 
 document.addEventListener("DOMContentLoaded", function() {
   // FisherYates();
+  
+
   loadtoList("brand");
   showCards();
+  initializeSearch ();
 });
 
 function showCards() {
@@ -235,26 +238,40 @@ function removeDuplicates(arr, key) {
   }).map(obj => obj[key]);
 }
 
-const searchArea = document.getElementById ('search-container');
-const searchInput = searchArea.getElementById('search-bar');
-const searchButton = searchArea.getElementById('search-button');
 
 function searchByName (){
-  const target = searchInput.value.toLowerCase().trim();
+  shoes = [...original];
+  const searchInput = document.getElementById('search-bar');
+  const target = searchInput.value.toLowerCase();
+  console.log ("found in search" + target);
   if (target === "" || target.length === 0) {
+
     showCards();
     return;
   }
   const filteredArray = shoes.filter(obj => 
     obj.model.toLowerCase().includes(target)
   );
+  shoes = filteredArray;
   showCards();
 }
 
-
-searchInput.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    searchByName();
+function initializeSearch() {
+  const searchInput = document.getElementById('search-bar');
+  const searchButton = document.getElementById('search-button');
+  
+  if (searchInput && searchButton) {
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        searchByName();
+      }
+    });
+    
+    searchButton.addEventListener('click', searchByName);
+  } else {
+    console.error("Search elements not found:", {
+      input: !!searchInput,
+      button: !!searchButton
+    });
   }
-});
-searchButton.addEventListener('click', searchByName());
+}
