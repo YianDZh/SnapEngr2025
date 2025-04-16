@@ -184,6 +184,7 @@ function orderbyprice(){
   }
   else {
     shoes = back2;
+    resetAllCheckboxes();
   }
   showCards();
 }
@@ -193,6 +194,12 @@ function resetAllCheckboxes() {
   checkboxes.forEach(checkbox => {
     checkbox.checked = false;
   });
+  const highToLowRadio = document.getElementById("Highest");
+  const lowToHighRadio = document.getElementById("Lowest");
+  const radioreset = document.getElementById("None");
+  highToLowRadio.checked = false;
+  lowToHighRadio.checked = false;
+  radioreset.checked = false;
 }
 function refresh(){
   location.reload(true);
@@ -253,6 +260,7 @@ function searchByName (){
     obj.model.toLowerCase().includes(target)
   );
   shoes = filteredArray;
+  resetAllCheckboxes();
   showCards();
 }
 

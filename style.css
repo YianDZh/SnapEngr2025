@@ -134,11 +134,12 @@ body {
   z-index: 10; 
   top: 200px;
   left: 0;
-  background-color: rgba(76, 122, 76, 0.2); 
+  background-color: rgba(88, 177, 88, 0.2); 
   overflow-x: hidden; 
   padding-top: 60px; 
   bottom: 500px; 
   transition: 0.5s; 
+  border-radius: 30px;
 }
 
 .filterbtn {
@@ -148,11 +149,14 @@ body {
   border: none;
   z-index: 2;
   top: 50%; 
-
+}
+.filterbtn img{
+  width: 40px;
+  height: 40px;
 }
 
 .filterbtn:hover {
-  background-color: #092d57;
+  background-color: #095730;
   border: white 5px;
   border-radius: 12px;
   padding: 5px;
@@ -172,9 +176,10 @@ body {
   text-decoration: none;
 }
 .filter-area a{
+  font-family: "Montserrat";
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -185,6 +190,7 @@ body {
 
 }
 .filter-area legend{
+  font-family: "Montserrat";
   padding: 8px 16px 8px 16px;
   text-decoration: none;
   font-size:20px;
@@ -240,6 +246,8 @@ body {
   text-decoration: none;
   font-size: 20px;
   color: #818181;
+  font-family: "Montserrat";
+
   transition: 0.3s;
 }
 .radio-container p:hover {
@@ -254,15 +262,18 @@ body {
 
 /* Dropdown button */
 .dropdown-button {
+  font-family: "Montserrat";
   background-color: transparent;
   color: #818181;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
 }
 
 .dropdown-content {
+  font-family: "Montserrat";
+
   display: none;
   position: absolute;
   background-color:rgba(202, 183, 98, 0.2); ;
@@ -274,6 +285,8 @@ body {
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
+  color: #97733c;
+  text-decoration: none;
   border-radius: 20px;
 
 }
@@ -281,7 +294,7 @@ body {
   display: block;
 }
 .dropdown:hover .dropdown-button {
-  color: #8fff85;
+  color: #97733c;
 
 }
 
@@ -317,24 +330,30 @@ body {
 .card-content h2 {
   margin-top: 0;
   font-size: 25px;
-  color: #2a702a;
+  color: #ffffff;
   /* width: 200px; */
   font-family: "Roboto Italic";
   height: 50px;
   text-align: center;
   
 }
+.card-content h2:hover {
+  color: #2a702a;
+}
 
 
 .card img {
-  width: 45%;
+  margin-left: 30px;
+  margin-top: -40px;
+  border-radius: 20px;
+  width: 50%;
   height: 50%;
   float:inline-start;
 }
 
 .card button {
   position: relative;
-  bottom: 100px;
+  bottom: 85px;
   width: 140px;
   margin-left: 360px;
   background-color: #1A2A56;  
@@ -343,27 +362,26 @@ body {
 }
 
 #brand {
-  font-size: 30px;
+  font-size: 28px;
   position: relative;
-  width: 30%;
+  width: 40%;
   height: 30px;
   font-family: "Montserrat";
   text-align: right; 
   top: -16x; 
-  margin-left: 320px;
+  margin-left: 305px;
   font-weight: bold;
-
 }
 
 #main-category {
-  font-size: 18px;
+  font-size: 16px;
   position: relative;
   width: 30%;
   height: 30px;
   font-family: "Montserrat";
   text-align: right; 
-  top: -34px; 
-  margin-left: 320px;
+  top: -25px; 
+  margin-left: 355px;
   font-style:italic;  
 }
 #category{
@@ -374,7 +392,7 @@ body {
   font-family: "Montserrat";
   text-align: right; 
   top: -50px; 
-  margin-left: 320px;
+  margin-left: 350px;
   /* background-color: red; */
 }
 
