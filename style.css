@@ -10,6 +10,11 @@
   src: url(fonts/Roboto-VariableFont_wdth\,wght.ttf);
   font-family: Roboto;
 }
+
+@font-face {
+  src: url(fonts/Montserrat-VariableFont_wght.ttf);
+  font-family: Montserrat;
+}
 html,
 body {
   margin: 0;
@@ -311,8 +316,13 @@ body {
 
 .card-content h2 {
   margin-top: 0;
-  font-size: 20px;
+  font-size: 25px;
   color: #2a702a;
+  /* width: 200px; */
+  font-family: "Roboto Italic";
+  height: 50px;
+  text-align: center;
+  
 }
 
 
@@ -321,18 +331,53 @@ body {
   height: 50%;
   float:inline-start;
 }
-.card p{
-  margin: 8px 0;
-  font-size: 16px;
-}
+
 .card button {
   position: relative;
-  bottom: 50px;
-  margin-left: 410px;
+  bottom: 100px;
+  width: 140px;
+  margin-left: 360px;
   background-color: #1A2A56;  
   color: #E3A02B; 
   font-family: "Special Gothic Condensed One";
 }
+
+#brand {
+  font-size: 30px;
+  position: relative;
+  width: 30%;
+  height: 30px;
+  font-family: "Montserrat";
+  text-align: right; 
+  top: -16x; 
+  margin-left: 320px;
+  font-weight: bold;
+
+}
+
+#main-category {
+  font-size: 18px;
+  position: relative;
+  width: 30%;
+  height: 30px;
+  font-family: "Montserrat";
+  text-align: right; 
+  top: -34px; 
+  margin-left: 320px;
+  font-style:italic;  
+}
+#category{
+  font-size: 24px;
+  position: relative;
+  width: 30%;
+  height: 30px;
+  font-family: "Montserrat";
+  text-align: right; 
+  top: -50px; 
+  margin-left: 320px;
+  /* background-color: red; */
+}
+
 .card button:hover {
   background-color: #a78447;  
   color: #000000;  

@@ -238,7 +238,7 @@ function removeDuplicates(arr, key) {
   }).map(obj => obj[key]);
 }
 
-
+//? Search Bar Filter
 function searchByName (){
   shoes = [...original];
   const searchInput = document.getElementById('search-bar');
@@ -256,6 +256,7 @@ function searchByName (){
   showCards();
 }
 
+//!Wraper created because creating listeners individually was not working at first
 function initializeSearch() {
   const searchInput = document.getElementById('search-bar');
   const searchButton = document.getElementById('search-button');
